@@ -1,0 +1,25 @@
+<!-- app/views/tasks/_form.html.erb -->
+<div class="container mt-5">
+  <h1><%= @task.new_record? ? 'New Task' : 'Edit Task' %></h1>
+
+  <%= form_with(model: @task, local: true) do |form| %>
+    <div class="mb-3">
+      <%= form.label :title, class: 'form-label' %>
+      <%= form.text_field :title, class: 'form-control' %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :details, class: 'form-label' %>
+      <%= form.text_area :details, class: 'form-control' %>
+    </div>
+
+    <div class="form-check mb-3">
+      <%= form.check_box :completed, class: 'form-check-input' %>
+      <%= form.label :completed, class: 'form-check-label' %>
+    </div>
+
+    <%= form.submit class: 'btn btn-success' %>
+  <% end %>
+
+  <%= link_to 'Back to list', tasks_path, class: 'btn btn-secondary mt-3' %>
+</div>
